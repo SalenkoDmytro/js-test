@@ -144,9 +144,186 @@
 // }
 // console.table(friends);
 
-function litres(time) {
-  const x = Math.ceil(time * 0.5);
-  console.log(x);
-  return x;
+// function litres(time) {
+//   const x = Math.ceil(time * 0.5);
+//   console.log(x);
+//   return x;
+// }
+// console.log(litres(0.82));
+
+// const time = prompt('Введите время');
+
+// const toNumber = Number(time);
+// const total = toNumber * 60 * 60;
+// alert(`В ${time} содержится ${total} секунд`);
+
+// function countProps(object) {
+//   let propCount = 0;
+//   // Change code below this line
+//   for (const key in object) {
+//     if (object.hasOwnProperty(key)) {
+//       console.log(key);
+//       propCount += 1;
+//     }
+//   }
+//   // Change code above this line
+//   return propCount;
+// }
+// console.log(countProps({ name: 'Mango', age: 2 }));
+
+// Перебери объект apartment используя метод Object.keys() и цикл for...of. Запиши в переменную keys массив ключей собственных свойств объекта apartment, и добавь в массив values все значения его свойств.
+// const apartment = {
+//   descr: 'Spacious apartment in the city center',
+//   rating: 4,
+//   price: 2153,
+// };
+// const values = [];
+// // Change code below this line
+// const keys = Object.keys(apartment);
+// for (let key of keys) {
+//   values.push(key);
+// }
+// console.log(values);
+
+// Выполни рефакторинг функции countProps(object) используя метод Object.keys() и, возможно, но необязательно, цикл for...of.
+// Запиши в переменную keys массив ключей собственных свойств объекта apartment, а в переменную values массив всех значений его свойств. Используй методы Object.keys() и Object.values().
+
+// Напиши функцию countTotalSalary(salaries) которая принимает объект зарплат, где имя свойства это имя сотрудника, а значение свойства это зарплата. Функция должна рассчитать общую сумму зарплат сотрудников и вернуть её. Используй переменную totalSalary для хранения общей суммы зарплаты.
+// function countTotalSalary(salaries) {
+//   let totalSalary = 0;
+//   // Change code below this line
+//   const salary = Object.values(salaries);
+//   console.log(salary);
+//   for (let i of salary) {
+//     totalSalary += i;
+//   }
+//   // Change code above this line
+//   return totalSalary;
+// }
+
+// console.log(countTotalSalary({ mango: 100, poly: 150, alfred: 80 }));
+
+// Перебери массив объектов colors используя цикл for...of. Добавь в массив hexColors значения свойств hex, а в массив rgbColors значения свойств rgb из всех объектов массива colors.
+// const colors = [
+//   { hex: '#f44336', rgb: '244,67,54' },
+//   { hex: '#2196f3', rgb: '33,150,243' },
+//   { hex: '#4caf50', rgb: '76,175,80' },
+//   { hex: '#ffeb3b', rgb: '255,235,59' },
+// ];
+
+// const hexColors = [];
+// const rgbColors = [];
+// // Change code below this line
+// for (let color of colors) {
+//   hexColors.push(color.hex);
+//   rgbColors.push(color.rgb);
+// }
+
+// Напиши функцию getProductPrice(productName) которая принимает один параметр productName - название продукта. Функция ищет объект продукта с таким именем (свойство name) в массиве products и возвращает его цену (свойство price). Если продукт с таким названием не найден, функция должна возвращать null.
+// const products = [
+//   { name: 'Radar', price: 1300, quantity: 4 },
+//   { name: 'Scanner', price: 2700, quantity: 3 },
+//   { name: 'Droid', price: 400, quantity: 7 },
+//   { name: 'Grip', price: 1200, quantity: 9 },
+// ];
+
+// function getProductPrice(productName) {
+//   // Change code below this line
+//   let price = 0;
+//   for (let product of products) {
+//     if (product.name === productName) {
+//       price = product.price;
+//       break;
+//     } else {
+//       price = null;
+//     }
+//     // Change code above this line
+//   }
+//   return price;
+// }
+// console.log(getProductPrice('Scanner'));
+// console.log(getProductPrice('Droid'));
+// console.log(getProductPrice('Engine'));
+
+// Напиши функцию getAllPropValues(propName) которая принимает один параметр propName - имя (ключ) свойства. Функция должна вернуть массив всех значений свойства с таким именем из каждого объекта в массиве products. Если в объектах нет свойства с таким именем, функция должна вернуть пустой массив.
+// const products = [
+//   { name: 'Radar', price: 1300, quantity: 4 },
+//   { name: 'Scanner', price: 2700, quantity: 3 },
+//   { name: 'Droid', price: 400, quantity: 7 },
+//   { name: 'Grip', price: 1200, quantity: 9 },
+// ];
+
+// function getAllPropValues(propName) {
+//   // Change code below this line
+//   let massive = [];
+//   for (let product of products) {
+//     // console.log(product[propName]);
+//     const keys = Object.keys(product);
+//     // console.log(keys);
+//     for (let key of keys) {
+//       if (key === propName) {
+//         massive.push(product[key]);
+//         console.log(massive);
+//       }
+//     }
+//   }
+//   return massive;
+//   // Change code above this line
+// }
+
+// console.log(getAllPropValues('name'));
+// console.log(getAllPropValues('quantity'));
+// console.log(getAllPropValues('price'));
+// console.log(getAllPropValues('category'));
+
+// Напиши функцию calculateTotalPrice(productName) которая принимает один параметр productName - название товара. Функция должна вернуть общую стоимость (цена * количество) товара с таким именем из массива products.
+
+// const products = [
+//   { name: 'Radar', price: 1300, quantity: 4 },
+//   { name: 'Scanner', price: 2700, quantity: 3 },
+//   { name: 'Droid', price: 400, quantity: 7 },
+//   { name: 'Grip', price: 1200, quantity: 9 },
+// ];
+
+// function calculateTotalPrice(productName) {
+//   // Пиши код ниже этой строки
+//   let totalPrice = 0;
+//   for (let product of products) {
+//     if (product.name === productName) {
+//       totalPrice = product.price * product.quantity;
+//       console.log(totalPrice);
+//       break;
+//     }
+//   }
+//   return totalPrice;
+//   // Пиши код выше этой строки
+// }
+
+// console.log(calculateTotalPrice('Blaster'));
+// console.log(calculateTotalPrice('Radar'));
+
+// Напиши функцию makeTask(data) которая принимает один параметр data - объект со следующими свойствами.
+
+// text - текст задачи.
+// category - категория задачи.
+// priority - приоритет задачи.
+// Функция должна составить и вернуть новый объект задачи, не изменяя напрямую параметр data. В новом объекте должно быть свойство completed, значение которого хранится в одноимённой локальной переменной.
+
+// В параметре data гарантированно будет только свойство text, а остальные два, category и priority, могут отсутствовать. Тогда, в новом объекте задачи, в свойствах category и priority должны быть значения по умолчанию, хранящиеся в одноимённых локальных переменных.
+function makeTask(data) {
+  const completed = false;
+  const category = 'General';
+  const priority = 'Normal';
+  // Change code below this line
+  const data = {};
+  console.log(data);
+  const newData = {
+    category,
+    priority,
+    completed,
+  };
+  return newData;
+  // Change code above this line
 }
-console.log(litres(0.82));
+// console.log(makeTask({}));
+console.log(makeTask({ category: 'Homemade', priority: 'Low', text: 'Take out the trash' }));
