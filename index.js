@@ -302,28 +302,61 @@
 // console.log(calculateTotalPrice('Blaster'));
 // console.log(calculateTotalPrice('Radar'));
 
-// Напиши функцию makeTask(data) которая принимает один параметр data - объект со следующими свойствами.
+// К нам обратилась владелица лавки зелий «У старой жабы» и заказала программу для ведения инвентаря - добавления, удаления, поиска и обновления зелий. Добавь объекту atTheOldToad свойство potions, значением которого сделай пустой массив.
+// Добавь объекту atTheOldToad метод getPotions(), который просто возвращает значение свойства potions.
+// Дополни метод addPotion(potionName) так, чтобы он добавлял зелье potionName в конец массива зелий в свойстве potions.
+// Дополни метод removePotion(potionName) так, чтобы он удалял зелье potionName из массива зелий в свойстве potions.
+// Дополни метод updatePotionName(oldName, newName) так, чтобы он обновлял название зелья с oldName на newName, в массиве зелий в свойстве potions.
 
-// text - текст задачи.
-// category - категория задачи.
-// priority - приоритет задачи.
-// Функция должна составить и вернуть новый объект задачи, не изменяя напрямую параметр data. В новом объекте должно быть свойство completed, значение которого хранится в одноимённой локальной переменной.
+// Выполни рефакторинг методов объекта atTheOldToad так, чтобы они работали не с массивом строк, а с массивом объектов.
 
-// В параметре data гарантированно будет только свойство text, а остальные два, category и priority, могут отсутствовать. Тогда, в новом объекте задачи, в свойствах category и priority должны быть значения по умолчанию, хранящиеся в одноимённых локальных переменных.
-function makeTask(data) {
-  const completed = false;
-  const category = 'General';
-  const priority = 'Normal';
+// getPotions() - метод для получения всех зелий. Возвращает значение свойства potions.
+// addPotion(newPotion) - добавляет зелье newPotion (уже объект) в массив в свойстве potions, но только если такого зелья еще нет в инвентаре. В противном случае возвращается строка.
+// removePotion(potionName) - удаляет объект зелья с именем potionName из массива в свойстве potions.
+// updatePotionName(oldName, newName) - обновляет свойство name объекта-зелья с названием oldName на newName в массиве potions.
+const atTheOldToad = {
+  potions: [
+    { name: 'Speed potion', price: 460 },
+    { name: 'Dragon breath', price: 780 },
+    { name: 'Stone skin', price: 520 },
+  ],
   // Change code below this line
-  const data = {};
-  console.log(data);
-  const newData = {
-    category,
-    priority,
-    completed,
-  };
-  return newData;
+  getPotions() {
+    return this.potions;
+  },
+
+  addPotion(newPotion) {
+    const { name } = newPotion;
+    for (const potion of this.potions) {
+      if (potion.name === name) {
+        return `Error! Potion ${newPotion} is already in your inventory!`;
+      }
+    }
+    this.potions.push(newPotion);
+    return this.potions;
+  },
+
+  removePotion(potionName) {
+    const potionIndex = this.potions.indexOf(potionName);
+
+    if (potionIndex === -1) {
+      return `Potion ${potionName} is not in inventory!`;
+    }
+
+    this.potions.splice(potionIndex, 1);
+  },
+  updatePotionName(oldName, newName) {
+    const potionIndex = this.potions.indexOf(oldName);
+
+    if (potionIndex === -1) {
+      return `Potion ${oldName} is not in inventory!`;
+    }
+
+    this.potions.splice(potionIndex, 1, newName);
+  },
   // Change code above this line
-}
-// console.log(makeTask({}));
-console.log(makeTask({ category: 'Homemade', priority: 'Low', text: 'Take out the trash' }));
+};
+
+console.log(atTheOldToad.addPotion({ name: 'Invisibility', price: 620 }));
+
+// console.log(atTheOldToad.addPotion({ name: 'Dragon breath', price: 700 }));
