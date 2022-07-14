@@ -314,49 +314,193 @@
 // addPotion(newPotion) - добавляет зелье newPotion (уже объект) в массив в свойстве potions, но только если такого зелья еще нет в инвентаре. В противном случае возвращается строка.
 // removePotion(potionName) - удаляет объект зелья с именем potionName из массива в свойстве potions.
 // updatePotionName(oldName, newName) - обновляет свойство name объекта-зелья с названием oldName на newName в массиве potions.
-const atTheOldToad = {
-  potions: [
-    { name: 'Speed potion', price: 460 },
-    { name: 'Dragon breath', price: 780 },
-    { name: 'Stone skin', price: 520 },
-  ],
-  // Change code below this line
-  getPotions() {
-    return this.potions;
-  },
+// const atTheOldToad = {
+//   potions: [
+//     { name: 'Speed potion', price: 460 },
+//     { name: 'Dragon breath', price: 780 },
+//     { name: 'Stone skin', price: 520 },
+//   ],
+//   // Change code below this line
+//   getPotions() {
+//     return this.potions;
+//   },
 
-  addPotion(newPotion) {
-    const { name } = newPotion;
-    for (const potion of this.potions) {
-      if (potion.name === name) {
-        return `Error! Potion ${newPotion} is already in your inventory!`;
-      }
-    }
-    this.potions.push(newPotion);
-    return this.potions;
-  },
+//   addPotion(newPotion) {
+//     const { name } = newPotion;
+//     for (const potion of this.potions) {
+//       if (potion.name === name) {
+//         return `Error! Potion ${newPotion} is already in your inventory!`;
+//       }
+//     }
+//     this.potions.push(newPotion);
+//     return this.potions;
+//   },
 
-  removePotion(potionName) {
-    const potionIndex = this.potions.indexOf(potionName);
+//   removePotion(potionName) {
+//     for (let i = 0; i < this.potions.length; i += 1) {
+//       if (this.potions[i].name === potionName) {
+//         this.potions.splice(i, 1);
+//         return this.potions;
+//       }
+//     }
+//     return `Potion ${potionName} is not in inventory!`;
+//   },
 
-    if (potionIndex === -1) {
-      return `Potion ${potionName} is not in inventory!`;
-    }
+//   updatePotionName(oldName, newName) {
+//     for (let i = 0; i < this.potions.length; i += 1) {
+//       if (this.potions[i].name === oldName) {
+//         this.potions[i].name = newName;
+//       }
+//     }
+//     return this.potions;
 
-    this.potions.splice(potionIndex, 1);
-  },
-  updatePotionName(oldName, newName) {
-    const potionIndex = this.potions.indexOf(oldName);
+//     // const potionIndex = this.potions.indexOf(oldName);
 
-    if (potionIndex === -1) {
-      return `Potion ${oldName} is not in inventory!`;
-    }
+//     // if (potionIndex === -1) {
+//     //   return `Potion ${oldName} is not in inventory!`;
+//     // }
 
-    this.potions.splice(potionIndex, 1, newName);
-  },
-  // Change code above this line
-};
+//     // this.potions.splice(potionIndex, 1, newName);
+//   },
+//   // Change code above this line
+// };
 
-console.log(atTheOldToad.addPotion({ name: 'Invisibility', price: 620 }));
+// console.log(atTheOldToad.addPotion({ name: 'Stone skin', price: 240 }));
 
-// console.log(atTheOldToad.addPotion({ name: 'Dragon breath', price: 700 }));
+// За допомогою prompt() пропонуєте користувачеві ввести число від 1 до 10 включно та
+// записуєте змінну. Другий змінної привласнюєте випадкове число в тому ж діапазоні за
+// допомогою Math.random(), закругливши його до цілого значення.
+// У випадку, якщо випадкове число та число, введене користувачем збіглися, виводьте в
+// консоль "Ви щасливчик! Ваше число ...",
+// якщо не збіглися - "Не вгадали! Ваше число ..., а випало число ..." (замість точок мають бути значення відповідних змінних.
+//console.log(Math.floor(Math.random() * 10 + 1));
+
+// let number = 0;
+// let random = 1;
+
+// let flag = false;
+
+// while (number !== random) {
+//   number = Number(prompt('Введи число от 1 до 10'));
+//   if (flag) {
+//     console.log(`Не вгадали! Ваше число ${number}, а випало число ${random}`);
+//   }
+//   flag = true;
+// }
+// console.log(`Ви щасливчик! Ваше число ${random}`);
+
+// do {
+//   number = Number(prompt('Введи число от 1 до 10'));
+//   random = Math.floor(Math.random() * 10 + 1);
+//   if (number !== random) {
+//     console.log(`Не вгадали! Ваше число ${number}, а випало число ${random}`);
+//   }
+// } while (number !== random);
+// console.log(`Ви щасливчик! Ваше число ${random}`);
+
+// Необходимо написать логику обработки заказа пиццы. Выполни рефакторинг метода order так, чтобы он принимал вторым и третим параметрами два колбэка onSuccess и onError.
+// Если в свойстве pizzas нет пиццы с названием из параметра pizzaName, метод order должен возвращать результат вызова колбэка onError, передавая ему аргументом строку "There is no pizza with a name <имя пиццы> in the assortment."
+// Если в свойстве pizzas есть пицца с названием из параметра pizzaName, метод order должен возвращать результат вызова колбэка onSuccess, передавая ему аргументом имя заказанной пиццы.
+// После объявления объекта pizzaPalace мы добавили колбэки и вызовы методов. Пожалуйста ничего там не меняй.
+
+// const pizzaPalace = {
+//   pizzas: ['Ultracheese', 'Smoked', 'Four meats'],
+//   order(pizzaName, makePizza, onOrderError) {
+//     const { pizzas } = this;
+//     // console.log(pizzas.includes(pizzaName));
+//     if (pizzas.includes(pizzaName)) {
+//       return makePizza(pizzaName);
+//     }
+//     return onOrderError(pizzaName);
+//   },
+// };
+// // Change code above this line
+
+// // Callback for onSuccess
+// function makePizza(pizzaName) {
+//   return `Your order is accepted. Cooking pizza ${pizzaName}.`;
+// }
+
+// // Callback for onError
+// function onOrderError(error) {
+//   return `Error! ${error}`;
+// }
+
+// // Method calls with callbacks
+// // pizzaPalace.order('Smoked', makePizza, onOrderError);
+// // pizzaPalace.order('Four meats', makePizza, onOrderError);
+// // pizzaPalace.order('Big Mike', makePizza, onOrderError);
+// // pizzaPalace.order('Vienna', makePizza, onOrderError);
+
+// console.log(pizzaPalace.order('Smoked', makePizza, onOrderError));
+// console.log(pizzaPalace.order('Big Mike', makePizza, onOrderError));
+// function toJadenCase(str) {
+//   let massive = str.split(' ');
+//   let toJadenCase = [];
+//   for (const word of massive) {
+//     console.log(word);
+//     toJadenCase.push(word[0].toUpperCase() + word.slice(1, word.length));
+//     console.log(toJadenCase);
+//   }
+
+//   return toJadenCase.join(' ');
+// }
+// console.log(toJadenCase("How can mirrors be real if our eyes aren't real"));
+// const numbers = [1, 2, 3, 4, 5];
+// const filteredNumbers = numbers.filter(number => number > 3);
+// console.log(filteredNumbers);
+
+// function getSum(a, b) {
+//   let total = 0;
+//   a.forEach(element => {
+//     a += element;
+//   });
+//   if (a !== b && a > 0 && b > 0) {
+//     return a + b;
+//   } else if (a === b) {
+//     return a;
+//   } else if (a < 0) {
+//     for (let i = a; i <= b; i += 1) {
+//       // console.log(i);
+//       total += i;
+//     }
+//     return total;
+//   } else if (b < 0) {
+//     for (let i = b; i <= a; i += 1) {
+//       // console.log(i);
+//       total += i;
+//     }
+//     return total;
+//   }
+// }
+// console.log(getSum(0, -1), -1);
+
+// function doMath(string, number1, number2) {
+//   const normalized = Number(string);
+//   return number1 normalized number2;
+// }
+// console.log(doMath('*', 2, 2));
+// function changeEven(numbers, value) {
+//   // Change code below this line
+//   let newNumber = [];
+//   for (let i = 0; i < numbers.length; i += 1) {
+//     newNumber.push(numbers[i]);
+//     console.log(newNumber);
+
+//     if (newNumber[i] % 2 === 0) {
+//       newNumber[i] = newNumber[i] + value;
+//       console.log(newNumber);
+//     }
+//   }
+//   // Change code above this line
+// }
+// Дополни код так, чтобы в переменной evenNumbers получился массив чётных чисел из массива numbers, а в переменной oddNumbers массив нечётных. Обязательно используй метод filter().
+// Change code below this line
+
+// Дополни код так, чтобы в переменной names получился массив имён авторов в алфавитном порядке, рейтинг книг которых больше значения переменной MIN_BOOK_RATING.
+function removeSmallest(numbers) {
+  return numbers.filter(number => number > Math.min(...numbers));
+}
+console.log(removeSmallest([5, 3, 2, 1, 4]));
+console.log(removeSmallest([1, 2, 3, 4, 5]));
+console.log(removeSmallest([2, 2, 1, 2, 1]));
