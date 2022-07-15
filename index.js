@@ -498,9 +498,83 @@
 // Change code below this line
 
 // Дополни код так, чтобы в переменной names получился массив имён авторов в алфавитном порядке, рейтинг книг которых больше значения переменной MIN_BOOK_RATING.
-function removeSmallest(numbers) {
-  return numbers.filter(number => number > Math.min(...numbers));
-}
-console.log(removeSmallest([5, 3, 2, 1, 4]));
-console.log(removeSmallest([1, 2, 3, 4, 5]));
-console.log(removeSmallest([2, 2, 1, 2, 1]));
+// const filter = function (array, test) {
+//   const filteredArray = [];
+
+//   for (const el of array) {
+//     console.log(el);
+//     const passed = test(el);
+
+//     if (passed) {
+//       filteredArray.push(el);
+//     }
+//   }
+
+//   return filteredArray;
+// };
+
+// const callback1 = function (value) {
+//   return value >= 3;
+// };
+
+// const r1 = filter([1, 2, 3, 4, 5], callback1);
+// console.log(r1);
+
+// const callback2 = function (value) {
+//   return value <= 4;
+// };
+
+// const r2 = filter([1, 2, 3, 4, 5, 6, 7, 8], callback2);
+// console.log(r2);
+
+// const fruits = [
+//   { name: 'apples', quantity: 200, isFresh: true },
+//   { name: 'grapes', quantity: 150, isFresh: false },
+//   { name: 'bananas', quantity: 100, isFresh: true },
+// ];
+
+// function getFruitsQuantity(fruit) {
+//   return fruit.quantity >= 120;
+// }
+// const r3 = filter(fruits, getFruitsQuantity);
+// console.log(r3);
+
+// const fnA = function (parameter) {
+//   const innerVariable = 'значение внутренней переменной функции fnA';
+
+//   const innerFunction = function () {
+//     console.log(parameter);
+//     console.log(innerVariable);
+//     console.log('Это вызов innerFunction');
+//   };
+
+//   return innerFunction;
+// };
+
+// const fnB = fnA(555);
+
+// fnB();
+
+// console.log(fnB);
+
+const makeDish = function (sheffName, dish) {
+  console.log(`${sheffName} готовит ${dish}`);
+};
+
+// makeDish('Mango', 'пирожок');
+// makeDish('Mango', 'омлет');
+// makeDish('Mango', 'чай');
+
+const makeSheff = function (name) {
+  const makeDish = function (dish) {
+    console.log(`${name} готовит ${dish}`);
+  };
+  return makeDish;
+};
+const mango = makeSheff('Mango');
+
+console.log(mango);
+
+mango('котлеты');
+mango('Пирожок');
+console.dir(mango);
