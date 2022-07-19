@@ -557,24 +557,123 @@
 
 // console.log(fnB);
 
-const makeDish = function (sheffName, dish) {
-  console.log(`${sheffName} готовит ${dish}`);
-};
+// const makeDish = function (sheffName, dish) {
+//   console.log(`${sheffName} готовит ${dish}`);
+// };
 
-// makeDish('Mango', 'пирожок');
-// makeDish('Mango', 'омлет');
-// makeDish('Mango', 'чай');
+// // makeDish('Mango', 'пирожок');
+// // makeDish('Mango', 'омлет');
+// // makeDish('Mango', 'чай');
 
-const makeSheff = function (name) {
-  const makeDish = function (dish) {
-    console.log(`${name} готовит ${dish}`);
-  };
-  return makeDish;
-};
-const mango = makeSheff('Mango');
+// const makeSheff = function (name) {
+//   const makeDish = function (dish) {
+//     console.log(`${name} готовит ${dish}`);
+//   };
+//   return makeDish;
+// };
+// const mango = makeSheff('Mango');
 
-console.log(mango);
+// console.log(mango);
 
-mango('котлеты');
-mango('Пирожок');
-console.dir(mango);
+// mango('котлеты');
+// mango('Пирожок');
+// console.dir(mango);
+
+// function removeEveryOther(arr) {
+//   const massive = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (i % 2 === 0) {
+//       massive.push(arr[i]);
+//     }
+//   }
+//   return massive;
+// }
+
+// function sumArray(array) {
+//   const newMassive = [];
+//   array.forEach(element => {
+//     if (element !== Math.min(...array) && element !== Math.max(...array)) {
+//       newMassive.push(element);
+//     }
+//   });
+//   return newMassive;
+// }
+// const sumArray = array =>
+//    return array.filter(element => element !== Math.min(...array) && element !== Math.max(...array))
+//         .reduce((t, e) => (t += e), 0)
+
+// class Hero {
+//   constructor({ name = 'hero', xp = 0 }) {
+//     this.name = name;
+//     this.xp = xp;
+//   }
+
+//   gainXp(amount) {
+//     console.log(`${this.name} получает ${amount} опыта`);
+//     this.xp += amount;
+//   }
+// }
+
+// class Warrior extends Hero {
+//   constructor({ weapon, ...restProps } = {}) {
+//     super(restProps);
+//     this.weapon = weapon;
+//   }
+//   attack() {
+//     console.log(`${this.name} атакует используя ${this.weapon}`);
+//   }
+// }
+
+// class Berserk extends Warrior {
+//   constructor({ warcry, ...restProps } = {}) {
+//     super(restProps);
+//     this.warcry = warcry;
+//   }
+//   babyRage() {
+//     console.log(this.warcry);
+//   }
+// }
+
+// class Mage extends Hero {
+//   constructor({ spells, ...restProps } = {}) {
+//     super(restProps);
+//     this.spells = spells;
+//   }
+//   spell() {
+//     console.log(`${this.name} использует магию ${this.spells}`);
+//   }
+// }
+// const mango = new Warrior({ name: 'mango', xp: 1000, weapon: 'Алебарда' });
+
+// mango.gainXp(1000);
+// mango.attack();
+// mango.gainXp(1000);
+// console.log(mango);
+
+// const poly = new Mage({ name: 'poly', xp: 2000, spells: 'FireBoll' });
+// poly.spell();
+// poly.gainXp(1000);
+// console.log(poly);
+
+// const ajax = new Berserk({ name: 'ajax', xp: 200, warcry: 'я ребенок, Вали отсюда' });
+
+// ajax.babyRage();
+// ajax.gainXp(300);
+// console.log(ajax);
+
+// Фібоначчі
+// Послідовність Фібоначчі - це ряд чисел, де кожне наступне є
+// сумою двох попередніх. Так, перші десять чисел виглядають так: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34.
+
+// Постановка
+// Потрібно написати функцію, яка повертає n-ний запис у певній послідовності,
+// причому n - число, яке передається як аргумент функції.
+// const num = number => {
+//   const numbers = [0, 1];
+//   for (let i = 2; i < number; i++) {
+//     numbers.push(numbers[i - 1] + numbers[i - 2]);
+//   }
+//   return numbers;
+// };
+// console.log(num(10));
+// Return an array
